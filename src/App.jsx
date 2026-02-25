@@ -12,7 +12,7 @@ function Header() {
 
     <header className="App-header">
       <span className="team-badge">Équipe</span>
-      <span className="badge-count">{team.length}</span>
+      <span className="badge-count"></span>
       <span className="team-name">HR-Connect Elite</span>
 
     </header>
