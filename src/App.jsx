@@ -54,10 +54,10 @@ function Header({ team }) {
           <main className="main-content">
           <Routes>
 
-            <Route path="/" element={<div>Home</div>} />
+            <Route path="/" element={<Home employees={employees} loading={loading} team={team} />} />
             <Route
               path="/annuaire"
-              element={<div> annuaire </div>} />
+              element={<Annuaire employees={employees} loading={loading} team={team} onAddMember={onAddMember} />} />
             <Route
               path="/mon-equipe"
               element={<div> mon equipe </div>} />
