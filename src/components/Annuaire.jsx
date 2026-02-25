@@ -32,18 +32,18 @@ const companies = [...new Set(employees.map((e) => e.company?.name))].sort();
 
 
 
-
+//Variables utilisées pour filtrer les données
 const [search, setSearch] = useState("");
   const [companyFilter, setCompanyFilter] = useState("");
   const [sortAZ, setSortAZ] = useState(false);
   const [sortZA, setSortZA] = useState(false);
-
+//Filtre par nom et entreprise en utilisant .filter
   let filtered = employees.filter((e) => {
     const matchName = e.name.toLowerCase().includes(search.toLowerCase());
     const matchCompany = companyFilter === "" || e.company?.name === companyFilter;
     return matchName && matchCompany;
   });
-
+//Filtre par nom dans l'ordre alphabétique avec .Sort
   if (sortAZ) {
     filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
   }

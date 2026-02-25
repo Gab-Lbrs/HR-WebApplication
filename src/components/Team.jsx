@@ -32,7 +32,7 @@ export default function Team( {team, onRemoveMember}) {
                 className="card-btn"
                 onClick={() => onRemoveMember(employee.id)}
               >
-               
+               - Retirer
               </button>
             </div>
           ))}

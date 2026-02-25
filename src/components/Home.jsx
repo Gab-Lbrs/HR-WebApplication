@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 export default function Home( {employees, loading, team}) {
 
+
+  // Utilisation de spread operator pour créer un tableau unique
   const companies = [...new Set(employees.map((e) => e.company?.name))];
   const cities = [...new Set(employees.map((e) => e.address?.city))];
   
