@@ -51,7 +51,8 @@ function Header({ team }) {
 
   // Ici on affiche le composant AppLayout
   function AppLayout({ employees, loading, team, onAddMember, onRemoveMember }) {
-    return (<div className="app-layout">
+    return (
+    <div className="app-layout">
           <Header team={team} />
           <main className="main-content">
 

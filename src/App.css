@@ -61,6 +61,48 @@
 .header-title {
   font-size: 1.5rem;
   margin-right: 1rem;
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+
+}
+
+.header-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background);
+
+}
+
+.header-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(79, 124, 255, 0.15);
+  border: 1px solid rgba(79, 124, 255, 0.3);
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  flex-shrink: 0;
+}
+
+.badge-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.badge-count {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  min-width: 1.2rem;
+  text-align: center;
 }
 
 
