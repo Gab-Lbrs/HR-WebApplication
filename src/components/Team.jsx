@@ -1,8 +1,10 @@
 import React from 'react'
+import { useState, useEffect } from "react";
 
 
 
-export default function Team() {
+
+export default function Team( {team, onRemoveMember}) {
 
   
 

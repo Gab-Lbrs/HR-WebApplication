@@ -63,7 +63,7 @@ function Header({ team }) {
               element={<Annuaire employees={employees} loading={loading} team={team} onAddMember={onAddMember} />} />
             <Route
               path="/mon-equipe"
-              element={<div> mon equipe </div>} />
+              element={<Team  team={team} onRemoveMember={onRemoveMember} />} />
 
             <Route path="*" element={<Notfound />} />
               
