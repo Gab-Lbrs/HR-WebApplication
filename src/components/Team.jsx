@@ -18,7 +18,7 @@ export default function Team( {team, onRemoveMember}) {
         <div className="team-grid">
           {team.map((employee) => (
             <div className="team-card" key={employee.id}>
-              <div className="card-profile">
+              <div className="card-avatar">
                 {employee.name.charAt(0).toUpperCase()}
               </div>
               <div className="card-info">

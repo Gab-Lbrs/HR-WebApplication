@@ -74,18 +74,31 @@
 
 }
 
+
 .header-nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  align-items: center;
+  border: #e8ecf4 1px solid;
+  
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--color-text-muted);
   padding: 0.4rem 1rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-background);
 
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  
+
+}
+
+.header-nav :hover {
+  color: var(--color-primary);
+  background: rgba(79, 124, 255, 0.12);
+  font-weight: 600;
+  border-radius: var(--radius);
+  
 }
 
 .header-badge {
@@ -181,6 +194,63 @@ display: flex;
   box-shadow: var(--shadow);
 }
 
+.team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.card-btn:disabled {
+  background-color: var(--color-border);
+}
+
+.team-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.team-profile-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  font-weight: 800;
+   letter-spacing: -0.02em;
+
+}
+
+.team-profile-email {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.team-profile-company {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+}
+
+.team-profile-city {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  line-height: 1.2;
+ letter-spacing: -0.02em;
+
+}
 
 
 
@@ -227,6 +297,7 @@ display: flex;
   font-weight: 800;
   color: var(--color-text);
   letter-spacing: -0.02em;
+  animation: reverse-text 1s ease-in-out infinite;
 
 }
 
