@@ -1,11 +1,22 @@
 
-import { BrowserRouter } from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import './App.css'
+import Home from './components/Home.jsx'
+import Annuaire from './components/Annuaire.jsx'
+import Team from './components/Team.jsx'
+import Notfound from './components/Notfound.jsx'
 
 
-function Header() {
+function Header({ team }) {
+  const location = useLocation();
+
+  const navLinks = [
+    { path: "/", label: "Accueil" },
+    { path: "/annuaire", label: "Annuaire" },
+    { path: "/mon-equipe", label: "Mon Équipe" },
+  ];
   return (    
     <header className="header">
       
@@ -14,14 +25,16 @@ function Header() {
       </div>
 
       <nav className="header-nav">
-        <span> Acceuil </span>
-        <span> Annuaire </span>
-        <span> Mon Équipe </span>
+        {navLinks.map((link) => (
+          <Link key={link.path} to={link.path} className={`nav-link ${location.pathname === link.path ? "active" : ""}`}>
+            {link.label}
+          </Link>
+        ))}
       </nav>
 
       <div className="header-badge">
         <span className="badge-label">Équipe</span>
-        <span className="badge-count"> 0 </span>
+        <span className="badge-count"> {team.length} </span>
       </div>
     </header>
   )}
@@ -35,15 +48,26 @@ function Header() {
   }
 
   // Ici on affiche le composant AppLayout
-  function AppLayout() {
-    return (
-      <div className="app-layout">
-        <Header />
-        <main className="main-content">
-          
-        </main>
-        <Footer />
-      </div>
+  function AppLayout({ employees, loading, team, onAddMember, onRemoveMember }) {
+    return (<div className="app-layout">
+          <Header team={team} />
+          <main className="main-content">
+          <Routes>
+
+            <Route path="/" element={<div>Home</div>} />
+            <Route
+              path="/annuaire"
+              element={<div> annuaire </div>} />
+            <Route
+              path="/mon-equipe"
+              element={<div> mon equipe </div>} />
+
+            <Route path="*" element={<div>Not Found</div>} />
+              
+          </Routes>
+          </main>
+          <Footer />
+        </div>
     );
   }
 
@@ -91,7 +115,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <AppLayout/>
+      <AppLayout employees={employees} loading={loading} team={team} onAddMember={handleAddMember} onRemoveMember={handleRemoveMember} />
     </BrowserRouter>
   );
 }
