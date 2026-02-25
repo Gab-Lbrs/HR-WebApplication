@@ -1,22 +1,29 @@
 
-
+import { BrowserRouter } from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
-
 import './App.css'
 
 
 function Header() {
-  return (
+  return (    
+    <header className="header">
+      
+        <div className="header-brand">
+        <span className="header-title">HR-Connect Elite</span>
+      </div>
 
+      <nav className="header-nav">
+        <span> Acceuil </span>
+        <span> Annuaire </span>
+        <span> Mon Équipe </span>
+      </nav>
 
-    <header className="App-header">
-      <span className="team-badge">Équipe</span>
-      <span className="badge-count"></span>
-      <span className="team-name">HR-Connect Elite</span>
-
+      <div className="header-badge">
+        <span className="badge-label">Équipe</span>
+        <span className="badge-count"> 0 </span>
+      </div>
     </header>
-
   )}
 
   function Footer() {
@@ -27,64 +34,64 @@ function Header() {
     )
   }
 
+  // Ici on affiche le composant AppLayout
+  function AppLayout() {
+    return (
+      <div className="app-layout">
+        <Header />
+        <main className="main-content">
+          
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
 
 
 
-function App() {
-
-  
-  
-  // State to store employees
-  const [employees, setEmployees] = useState([])
-
-  // Asynchronously fetch employees from an API
-  const [loading, setLoading] = useState(true)
-
-  // Load employees from localStorage
+export default function App() {
+  const [employees, setEmployees] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [team, setTeam] = useState(() => {
-    const saved = localStorage.getItem('hr-team')
-    return saved ? JSON.parse(saved) : []
-  })
+    const saved = localStorage.getItem("hr-team");
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  //Fetch employees dans un useEffect
+
+  // Ici on récupère les données de l'API
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((data) => {
-        setEmployees(data)
-        setLoading(false)
+        setEmployees(data);
+        setLoading(false);
       })
-      .catch(() => setLoading(false))
-  }, [])
+      .catch(() => setLoading(false));
+  }, []);
+
+  // Ici on stocke les données dans le localStorage
+  useEffect(() => {
+    localStorage.setItem("hr-team", JSON.stringify(team));
+  }, [team]);
+ 
 
 
-
-  //fonction pour ajouter un employé
+  //Fonction pour ajouter ou supprimer un membre de l'équipe
   function handleAddMember(employee) {
-    const alreadyIn = team.find((m) => m.id === employee.id)
+    const alreadyIn = team.find((m) => m.id === employee.id);
     if (!alreadyIn) {
-      setTeam([...team, employee])
+      setTeam([...team, employee]);
     }
   }
-  //fonction pour supprimer un employé
-  function handleRemoveMember(id) {
-    setTeam(team.filter((m) => m.id !== id))
-  }
-  
-  
-  
 
+  function handleRemoveMember(id) {
+    setTeam(team.filter((m) => m.id !== id));
+  }
 
   return (
-
-    // Garder toute l'application dans le navigateur
-   <BrowserRouter>
-   
-  
-  
-   </BrowserRouter>
-  )
+    <BrowserRouter>
+      <AppLayout/>
+    </BrowserRouter>
+  );
 }
-
-export default App
