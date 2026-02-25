@@ -47,6 +47,10 @@ const [search, setSearch] = useState("");
   if (sortAZ) {
     filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
   }
+  if (sortZA) {
+    filtered = [...filtered].sort((a, b) => b.name.localeCompare(a.name));
+  }
+  
   
 
 
