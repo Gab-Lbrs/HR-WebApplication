@@ -1,3 +1,11 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 #root {
   
   margin: 0 ;
@@ -143,10 +151,13 @@
 
 
 /* Footer */
-.footer {
+.App-footer {
   padding: 1rem;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--color-surface-2);
+  color: var(--color-text-muted);
+
+  border: var(--color-border  1px solid);
+  
 }
 
 /* main-content */
