@@ -121,14 +121,9 @@
 
 /* Team */
 .team-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 2rem;
-
+ max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
 }
 
 .team-sub {
@@ -163,23 +158,20 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
-  padding: 1.5rem;
+  width: 100%;
 
 }
 
 .team-card {
-  display: flex;
+display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1.4rem;          
   border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   background-color: var(--color-surface);
-  margin: 1rem;
-    transition: var(--transition);
-    box-shadow: var(--shadow);
-
+  transition: var(--transition);
+  box-shadow: var(--shadow);
 }
 
 
